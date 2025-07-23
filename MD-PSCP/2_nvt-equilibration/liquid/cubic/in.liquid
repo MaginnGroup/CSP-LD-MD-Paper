@@ -1,0 +1,42 @@
+
+variable        NAME index TCNE
+log             ${NAME}.log
+variable        mytemp index 350.0
+variable	dt index 1.0
+
+variable	 lx equal 31.303
+variable	 ly equal 31.303
+variable	 lz equal 31.303
+
+units            real
+special_bonds    lj 0.0 0.0 0.5 coul 0.0 0.0 0.5
+atom_style       full
+pair_style	 lj/cut/coul/long 12.0
+
+bond_style	 harmonic
+dihedral_style	 opls
+angle_style	 harmonic
+
+read_data        data.initial
+
+kspace_style    pppm 1E-4
+pair_modify     mix geometric tail yes
+
+timestep        ${dt}
+
+velocity        all zero linear units box
+
+dump            1 all custom 10000 ${NAME}.lammpstrj id type xu yu zu
+thermo_style    custom step vol temp press ke pe ebond eangle edihed eimp emol evdwl etail ecoul elong enthalpy density lx ly lz
+thermo          200
+
+change_box      all x final 0.0 ${lx} y final 0.0 ${ly} z final 0.0 ${lz} remap
+
+fix             2 all nvt temp ${mytemp} ${mytemp} $(100.0*dt)
+
+run             1000000
+
+write_data      data.${NAME}
+
+write_restart   restart.${NAME}
+

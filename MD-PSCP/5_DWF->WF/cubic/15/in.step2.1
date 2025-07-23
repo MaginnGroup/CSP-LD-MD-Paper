@@ -1,0 +1,58 @@
+
+variable        NAME index tcne.1
+log             ${NAME}.log
+variable        mytemp index 350.0
+variable	dt index 1.0
+variable        eta equal 0.1
+
+variable 	scale_lj equal ${eta}
+variable 	scale_coul equal (${eta})^2
+
+units            real
+special_bonds    lj 0.0 0.0 0.5 coul 0.0 0.0 0.5
+atom_style       full
+pair_style	 hybrid/overlay lj/cut 12.0 coul/long 12.0 
+
+bond_style	 harmonic
+dihedral_style	 opls
+angle_style	 harmonic
+
+read_restart	restart.tcne.750000
+
+kspace_style    pppm 1E-4
+pair_modify     mix geometric tail yes
+
+timestep        ${dt}
+
+# para obter essas coeficientes usar o comando "write_coeff file.coeff" em simulação nvt ou npt sem hybrid style
+pair_coeff      * * coul/long
+
+include         data2.out
+
+velocity        all zero linear units box
+ 
+group   	mobile type <> 1 10
+
+fix            1a all recenter INIT INIT INIT units box
+
+fix            1 mobile nvt temp ${mytemp} ${mytemp} $(100.0*dt) 
+dump           1 all custom 10000 ${NAME}.lammpstrj id type x y z
+
+fix            2 mobile adapt 1 pair lj/cut epsilon 1*10 1*10 v_scale_lj scale yes
+
+fix            3 mobile adapt 1 pair coul/long scale 1*10 1*10 v_scale_coul kspace v_scale_coul scale yes
+
+thermo_style    custom step vol temp press ke pe enthalpy emol evdwl etail ecoul elong 
+thermo          200
+
+run             2000000
+
+write_data      data.${NAME}
+
+write_restart   restart.${NAME}
+
+
+
+
+
+
