@@ -1,0 +1,38 @@
+:Lattice energy calculation
+  Ewald direct sumation cut off :         15.9715377602082
+  Ewald reciprocal summation cut off :    1.04989732523187
+  Direct summation cut off :            30.0  !In Angstrom
+  Ewlad summation convergence parameter:  0.083284917 !In
+  Convergence is assumed for order: 5         ! ---
+  Numerical derivatives using delta: 0.00001     !Possible
+
+:Quantum mechenics
+  The level of theory for the QM calculations : 'M06'
+  The basis set for the QM calculations : '6-31G(d,p)'
+  Other options for the QM calculations : 'Freq formcheck'
+  The number of processors GAUSSIAN should run on: 16
+  The amount of memory to be used by GAUSSIAN: 1800 !in MB
+
+:Van Der Waals interacitons
+  Potential for Van der Waals interactions : FIT
+
+:Entropy
+  Lower temperature: 0 !In Kelvin
+  Upper temperature: 400 ! In Kelvin
+  Temperature increment: 20 ! In Kelvin
+  Number of wave vector in each direction for the GLQ: 4
+
+:Asymmetric unit information -- THIS SECTION IS COMPULSARY
+  Number of distinct species in the asymmetric unit : 1
+  Asymmetric unit specifications : 1 10
+  Local axes systems : 1 2 3 1 2 3
+  Structure file : lowest
+  Translation of molecules in the unit cell : yes
+  Type of calculation : 'Helmholtz free energy'
+  Number of wave vectors for the density of states : 100000
+  Dispersion curves limits & number of evaluations: 0 0.5 10
+
+:Programs to be used
+  Gaussian location :"~/PROGRAMS_UTILITIES/GAUSSIAN/g09run"
+  Gdma location : "~/PROGRAMS_UTILITIES/GDMA/gdma2.2/bin/gdma"
+  Gdma input : "~/PROGRAMS_UTILITIES/GDMA/dmaSCF_2.dat"

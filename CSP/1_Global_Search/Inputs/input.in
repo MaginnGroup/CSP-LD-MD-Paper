@@ -1,0 +1,41 @@
+MOLECULAR TYPES 1
+-----------------------------------------------------------------------------
+TYPE auto generated molecule
+1
+10
+rigid_lam_intra
+0
+-----------------------------------------------------------------------------
+SPACE_GROUPS
+
+P1      P-1     P21     P21/C   P21212  P212121 PNA21   PCA21   PBCA   PBCN
+C2/C    CC      C2      PC      CM      P21/M   C2/M    P2/C    C2221  PMN21
+CMC21   ABA2    FDD2    IBA2    PNNA    PCCN    PBCM    PNNM    PMMN   PNMA
+CMCM    CMCA    FDDD    IBAM    P41     P43     I-4     P4/N    P42/N  I4/M
+I41/A   P41212  P43212  P-421C  I-42D   P31     P32     R3      P-3    R-3
+P3121   P3221   R3C     R-3C    P61     P63     P63/M   P213    PA-3   P2221
+PBA2
+
+END_SPACE_GROUPS
+-----------------------------------------------------------------------------
+SIMULATION
+15.00d0
+12.0d0
+12.0d0
+1.d-10
+1.0E-5
+no
+no
+
+SEARCH 
+50.d0 50.d0 50.d0
+130.d0 130.d0 130.d0
+3.d0 3.d0 3.d0
+40.d0 40.d0 40.d0
+300.d0 600.d0
+50.0d0
+40.d0
+0.15d0
+450000
+50.d0
+Uintra_cap 2    -447.01067490

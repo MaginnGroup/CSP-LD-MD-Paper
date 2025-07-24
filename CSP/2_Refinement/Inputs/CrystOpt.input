@@ -1,0 +1,66 @@
+
+# Lattice energy minimisation settings:
+cutoff       30       # cutoff radius (A) [no default]
+nouter_max   70       # maximum number of iterationsi [0 for single point energy evaluation = default]
+press        0.0 gpa  # [default = 0.0 kpa] pressure specification (kpa, mpa, gpa) 
+sp_elatt     yes      # calculate single point lattice energy for converged structure (yes/no)
+frequencies  no       # calculate frequencies (yes/no) [default -> no]
+potential_type fit    #fit, willians or custom (case sensitive) [default -> fit]
+foreshorten    no     #foreshortening of X-H bondlengths [default -> no]
+
+# Optimiser settings:
+tol          1.14        # convergence tolerance on energy [no default]
+fd_tor_pert  0.50          # [default = 1.0] perturbations for numerical gradients of intermolecular 
+fd_ang_pert  0.35          # [default = 1.0] energy with respect to flexible degrees of freedom;
+fd_bnd_pert  0.03          # [default = 0.1] torsions, bond angles and bond lengths respectively)
+fd_method    forward       # [default = forward] gradient calculation method (central,forward,backward)
+hotstart     yes           # [default = yes] use hot restart hessian during optimisation (yes/no)
+reuse_hessian yes
+inter_format new
+#start_inv_hes  hess.dat   # use hessian input file to start optimisation (file name) (use unit matrix if commented out)   
+
+mem_MB       2000MB   # memory requirement for GAUSSIAN calculations [no default]
+nprocs       24        # number of processors [default -> 1]
+
+# Intramolecular local approximation settings:
+intra_lvl     M06 6-31G(d,p)   # intramolecular QM model (blank for default -> error)
+intra_tor_up  5.0             # [default = 10.0] maximum change in torsion (deg) to update Taylor expansion
+intra_ang_up  5.0             # [default = 5.0] maximum change in bond angle (deg) to update Taylor expansion
+intra_bnd_up  0.02            # [default = 0.1] maximum change in bond length (Angs) to update Taylor expansion
+intra_ln_src  1.5             # [default = 2.0] scaling for maximum change allowed in line search 
+intra_order   second          # accuracy of expansion (first,second) order Taylor expansion [default -> second]
+#Additional convergence criteria for GAUSSIAN (standard convergence criteria if commented out):
+#molopt_conv  Tight           # specify convergence criteria for GAUSSIAN molecular optimisation (Tight, VeryTight)
+#molhes_conv  Tight           # specify convergence criteria for GAUSSIAN hessian calculation (Tight, VeryTight)
+
+# Intermolecular local approximation settings:
+densi_lvl     M06 6-31G(d,p)  # intermolecular model for charge density
+densi_tor_up  5.0            # [default = 10.0] maximum change in torsion (deg) to update expansion
+densi_ang_up  5.0            # [default = 5.0]  maximum change in bond angle (deg) to update expansion
+densi_bnd_up  0.02           # [default = 0.1]  maximum change in bond length (Angs) to update expansion
+densi_ln_src  1.1            # [default = 2.0] scaling for maximum change allowed in line search
+# To activate calculation of multipole moment derivatives with respect to flexible dof,
+# add + before flexible dof (e.g. +H1_C1_C2_C3  etc.) in submission script.
+ml_tor_pert     0.750d0      # [default = 1.0] (perturbations to calculate multipole moment derivatives with       
+ml_ang_pert     0.500d0      # [default = 1.0]  respect to flexible degrees of freedom; torsions, bond angles 
+ml_bnd_pert     0.010d0      # [default = 0.1]  and bondlengths respecively) 
+fd_mul_method   forward      # [default = forward] gradient calculation method for multipoles (central,forward)
+
+# Required utilities location:
+timing      PATH/GNU_TIME/time-1.7/time
+neigh       PATH/NEIGHCRYS/neighcrys_2.2.1.1/neighcrys.out
+dmacrys     PATH/DMACRYS/dmacrys_2.2.1.1/dmacrys.out
+gdmaneigh   PATH/GDMANEIGHCRYS/gdmaneighcrys/gdmaneighcrys 
+geomtogauss PATH/GEOMTOGAUSS/geomtogauss
+gdma        PATH/GDMA/gdma2.2/bin/gdma 
+gaussian    PATH/GAUSSIAN/g09run
+optp        PATH/OptimalPasteNonNAG/OptimalPaste
+dma_input   PATH/GDMA/dmaSCF_2.dat           #
+
+# Name of input files:
+axis         dmarel.axis     # DMACRYS molecular axis file
+bondlengths  bondlengths     # standard bondlengths file
+potential    pote.dat        # repulsion-dispersion potential file
+custom_label label           # file containing atom labels and matching atom types for CUSTOM potential
+mol_input    mol.input       # Molecule definition file 
+

@@ -1,0 +1,13 @@
+Title " Gaussian 09 SCF"
+verbose
+DENSITY SCF
+FILE Test.FChk
+
+Multipoles
+  RADIUS H 0.65
+  Limit 4
+  Punch gdma.punch
+  SWITCH 4.0
+Start
+
+Finish

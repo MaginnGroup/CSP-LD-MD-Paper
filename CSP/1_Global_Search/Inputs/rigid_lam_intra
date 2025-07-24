@@ -1,0 +1,48 @@
+Intramolecular energy/gradients/hessian/charges for:
+
+auto generated molecule
+
+Generated at level of theory:
+
+PBEPBE/6-31G(d,p)
+
+Across 0 dimensional grid:
+
+      start  interval finish
+
+From starting Z-matrix:
+C1     1 -0.105927                                                                  
+C1     2 -0.105927          1       bnd2                                            
+C1     3  0.366027          2       bnd3          1       ang3                      
+C1     4  0.365993          1       bnd4          2       ang4          3       dih4
+C1     5  0.366027          1       bnd5          2       ang5          3       dih5
+C1     6  0.365994          2       bnd6          1       ang6          4       dih6
+N1     7 -0.313046          5       bnd7          2       ang7          1       dih7
+N1     8 -0.313047          4       bnd8          2       ang8          1       dih8
+N1     9 -0.313046          3       bnd9          1       ang9          2       dih9
+N1    10 -0.313049          6      bnd10          1      ang10          2      dih10
+bnd2       1.3886
+bnd3       1.4284
+ang3     121.3686
+bnd4       1.4285
+ang4     121.3603
+dih4      -0.0002
+bnd5       1.4284
+ang5     121.3686
+dih5     179.9998
+bnd6       1.4285
+ang6     121.3603
+dih6     180.0002
+bnd7       1.1766
+ang7     152.2903
+dih7     179.9985
+bnd8       1.1766
+ang8     152.2541
+dih8    -179.9973
+bnd9       1.1766
+ang9     152.2904
+dih9    -179.9984
+bnd10      1.1766
+ang10    152.2542
+dih10    179.9974
+

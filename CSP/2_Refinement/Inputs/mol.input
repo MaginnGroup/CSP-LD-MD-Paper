@@ -1,0 +1,26 @@
+############################################################################################
+#                                Molecule Definition File                                  #
+############################################################################################
+ 
+mol_tot  1    #number of distinct molecules present in the .res file
+ 
+############################################################################################
+#      Molecules entered in the order they are processed in the specified .res file        #
+#               Dashed lines (------) are used as dividers between entries                 #
+#         Molecular formula computed in the following order: C,N,O,S,P,H,Br,Cl,F           #
+############################################################################################
+ 
+--------------------------------------------------------------------------------------------
+mol_num           1     #molecule number 
+mol_name        TCNE   #name of molecule 
+mol_form        C6N4     #molecular formula 
+num_atm          10     #number of atoms in molecule 
+mol_charge         0      #charge on molecule 
+mol_multiplicity   1      #molecule multiplicity
+gas_energy       -447.225589894  #H (M06/6-31G(d,p)) #gas-phase energy at given level of theory 
+                        #do not change the above entry if unknown 
+ 
+# Database file names and paths (do not change if databases will not be used)
+intra_lam_file  PATH/tcne_lamM06_intra   #name of database file for the intramolecular energy LAM
+elec_lam_file   PATH/tcne_lamM06_elec    #name of database file for the electrostatic model LAM
+--------------------------------------------------------------------------------------------
