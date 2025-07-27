@@ -65,10 +65,17 @@ These outputs correspond to the 100 structures subject to HA-LD in Figure 5 of t
 ## MD-PSCP
 Molecular dynamics based on the PSCP method [12,13] is employed as a final assessment of the finite temperature phase behavior. 
 
-The following inputs have been provided:
+Each subfolder contains simulation data for multiple polymorphs (e.g., cubic, mono, index-3, index-9, index-13)
 
-#### Input Files
-1. **dummy**: Placeholder
+The following folders have been provided:
+
+1. **1_NPT_equilibration/**
+**Purpose**: Equilibrate solid and liquid phases at target pressure and temperature (NPT ensemble).
+**Inputs**:
+    box.lmp: Molecular topology (LAMMPS format)
+    in.solid: LAMMPS input script
+**Outputs**:
+    X_output.out: LAMMPS outputs for each timestep window and temperature X Kelvin
 
 
 
