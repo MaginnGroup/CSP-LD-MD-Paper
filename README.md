@@ -76,14 +76,14 @@ Equilibrate solid and liquid phases at target pressure and temperature (NPT ense
 1. **X_output.out**: LAMMPS outputs for each timestep window and temperature X Kelvin.
    
 ### 2_Gaussian_Potential_Fit
-Fit Gaussian potentials for intermediate restrained states.
+Fit Gaussian potential for intermediate restrained states.
 #### Input Files
 1. **fit.py**, **positions.py**, **probability.py**: Python scripts for potential fitting.
 2.  **data.step0.initial**: Starting configuration and molecular topology (LAMMPS format).
 3.  **in.gauss_wells**: LAMMPS input script.
 #### Output Files
 1. **positions_X.txt**: Equilibrium coordinates of atoms of type X.
-2. 
+2. **dados_dr0_P.txt**: Probability distribution used to fit the parameter k of the Gaussian potential.
 
 ### 3_S->DWF
 
