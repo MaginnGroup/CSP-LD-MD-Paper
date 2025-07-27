@@ -68,13 +68,13 @@ Molecular dynamics based on the PSCP method [12,13] is employed as a final asses
 Each folder contains simulation data for multiple polymorphs (e.g., cubic, mono, index-3, index-9, index-13)
 
 The following folders have been provided:
-
-**1_NPT_equilibration/**: Equilibrate solid and liquid phases at target pressure and temperature (NPT ensemble).
+### 1_NPT_equilibration
+Equilibrate solid and liquid phases at target pressure and temperature (NPT ensemble).
 #### Input Files
-1. **box.lmp**: Molecular topology (LAMMPS format)
-2. **in.solid**: LAMMPS input script
+1. **box.lmp**: Molecular topology (LAMMPS format).
+2. **in.solid**: LAMMPS input script.
 #### Output Files
-1. **X_output.out**: LAMMPS outputs for each timestep window and temperature X Kelvin
+1. **X_output.out**: LAMMPS outputs for each timestep window and temperature X Kelvin.
 
 
 
