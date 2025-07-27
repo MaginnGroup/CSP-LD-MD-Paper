@@ -63,7 +63,7 @@ These outputs correspond to the 100 structures subject to HA-LD in Figure 5 of t
 1. **N/summary_CrystalDynamics.out**: Relative free energy, with respect to cluster 1, for cluster N between 0-400 K 
 
 ## MD-PSCP
-Molecular dynamics based on the PSCP method [12,13] is employed as a final assessment of the finite temperature phase behavior. Each folder contains simulation data for multiple polymorphs (e.g., cubic, mono, index-3, index-9, index-13)
+Molecular dynamics based on the PSCP method [12,13] is employed as a final assessment of the finite temperature phase behavior. Each folder contains simulation data for multiple polymorphs (cubic, mono, index-3, index-9, index-13).
 
 The following folders have been provided:
 
