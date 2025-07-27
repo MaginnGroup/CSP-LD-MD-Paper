@@ -86,9 +86,12 @@ Fit Gaussian potential for intermediate restrained states.
 2. **dados_dr0_P.txt**: Probability distribution used to fit the parameter k of the Gaussian potential.
 
 ### 3_S->DWF
-
+This stage performs the thermodynamic transformation from the fully interacting solid (S) to the dense weak fluid (DWF), a step in the PSCP path.
 #### Input Files
-
+1. **run.py**: Python script to automate the MD runs.
+2. **data.step1.initial**: Starting configuration and molecular topology (LAMMPS format).
+3. **in.step1_model**: LAMMPS input script.
+4. **data.out**: Intermolecular interaction data used in the simulation
 #### Output Files
 
 ### 4_DWF->WF
