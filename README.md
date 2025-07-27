@@ -73,7 +73,7 @@ Equilibrate solid and liquid phases at target pressure and temperature (NPT ense
 1. **box.lmp**: Starting configuration and molecular topology (LAMMPS format).
 2. **in.solid**: LAMMPS input script.
 #### Output Files
-1. **X_output.out**: LAMMPS outputs for each timestep window and temperature X Kelvin.
+1. **_output.out**: LAMMPS outputs for each temperature.
    
 ### 2_Gaussian_Potential_Fit
 Fit Gaussian potential for intermediate restrained states.
@@ -82,26 +82,30 @@ Fit Gaussian potential for intermediate restrained states.
 2.  **data.step0.initial**: Starting configuration and molecular topology (LAMMPS format).
 3.  **in.gauss_wells**: LAMMPS input script.
 #### Output Files
-1. **positions_X.txt**: Equilibrium coordinates of atoms of type X.
+1. **positions_.txt**: Equilibrium coordinates of atoms of types.
 2. **dados_dr0_P.txt**: Probability distribution used to fit the parameter k of the Gaussian potential.
 
 ### 3_S->DWF
 Thermodynamic transformation from the fully interacting solid (S) to the dense weak fluid (DWF).
 #### Input Files
 1. **run.py**: Python script to automate the MD runs.
-2. **data.step1.initial**: Starting configuration and molecular topology (LAMMPS format).
+2. **data.step1.initial**, **data.out**: Starting configuration and molecular topology (LAMMPS format).
 3. **in.step1_model**: LAMMPS input script.
-4. **data.out**: Intermolecular interaction data used in the simulation
 #### Output Files
-1. **X_output.out**: Output files from MD runs for different λ windows.
+1. **_output.out**: Output files from MD runs for different λ windows.
 2. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
-3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step
+3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 4_DWF->WF
-
+Thermodynamic transformation from the dense weak fluid (DWF) to the weal fluid (WF).
 #### Input Files
-
+1. **coordenador.py**: Python script to automate the MD runs.
+2.  **data.initial**, **data2.out**: Starting configuration and molecular topology (LAMMPS format).
+3. **in.step2.1**, **in.step2.2**, **in.step2.pos**: LAMMPS input scripts.
 #### Output Files
+1. **_output_.out**: Output files from MD runs for different volume windows.
+2. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
+3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 5_WF->L
 
