@@ -70,10 +70,14 @@ Each subfolder contains simulation data for multiple polymorphs (e.g., cubic, mo
 The following folders have been provided:
 
 1. **1_NPT_equilibration/**
+   
 **Purpose**: Equilibrate solid and liquid phases at target pressure and temperature (NPT ensemble).
+
 **Inputs**:
     box.lmp: Molecular topology (LAMMPS format)
+    
     in.solid: LAMMPS input script
+    
 **Outputs**:
     X_output.out: LAMMPS outputs for each timestep window and temperature X Kelvin
 
