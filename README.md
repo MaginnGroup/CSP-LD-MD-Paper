@@ -91,10 +91,10 @@ Thermodynamic transformation from the fully interacting solid (S) to the dense w
 1. **run.py**: Python script to automate the MD runs.
 2. **data.step1.initial**, **data.out**: Starting configuration and molecular topology (LAMMPS format).
 3. **in.step1_model**: LAMMPS input script.
+4. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
 #### Output Files
 1. **_output.out**: Output files from MD runs for different λ windows.
-2. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
-3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
+2. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 4_DWF->WF
 Thermodynamic transformation from the dense weak fluid (DWF) to the weak fluid (WF).
@@ -102,10 +102,10 @@ Thermodynamic transformation from the dense weak fluid (DWF) to the weak fluid (
 1. **coordenador.py**: Python script to automate the MD runs.
 2.  **data.initial**, **data2.out**: Starting configuration and molecular topology (LAMMPS format).
 3. **in.step2.1**, **in.step2.2**, **in.step2.pos**: LAMMPS input scripts.
+4. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
 #### Output Files
 1. **_output_.out**: Output files from MD runs for different volume windows.
-2. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
-3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
+2. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 5_WF->L
 Thermodynamic transformation from the weak fluid (WF) to the fully interacting liquid (L).
@@ -113,16 +113,21 @@ Thermodynamic transformation from the weak fluid (WF) to the fully interacting l
 1. **run.py**: Python script to automate the MD runs.
 2. **data.step3.initial**: Starting configuration and molecular topology (LAMMPS format).
 3. **in.step3_model**: LAMMPS input script.
+4. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
 #### Output Files
 1. **_output.out**: Output files from MD runs for different λ windows.
-2. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
-3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
+2. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 6_Phase_Transitions
-
+Final stage of the MD-PSCP workflow computes the overall free energy differences between pairs of polymorphs (solid–solid and solid–liquid transitions) as a function of temperature. Each folder represents a specific phase transition (e.g., cubic->index-3, index-3->liquid).
 #### Input Files
-
+1. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
 #### Output Files
+1. **data_T_deltaGp.txt**: Temperature-dependent gibbs free energy difference.
+2. **data_T_deltaHp.txt**: Temperature-dependent enthalpy difference.
+3. **data_T_TdeltaSp.txt**: Temperature-dependent entropic contribution.
+4. **data_T_rho.txt**: Temperature-dependent density profile.
+5. **figura_mbarX.png**: Visual summaries.
 
 ## References
 [1] Karamertzanis, P. G.; Pantelides, C. C. Ab initio crystal structure prediction—I. Rigid molecules. *Journal of Computational Chemistry* **2005**, *26*, 304-324, DOI: https://doi.org/10.1002/jcc.20165. 
