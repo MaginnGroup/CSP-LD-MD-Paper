@@ -108,10 +108,15 @@ Thermodynamic transformation from the dense weak fluid (DWF) to the weak fluid (
 3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 5_WF->L
-
+Thermodynamic transformation from the weak fluid (WF) to the fully interacting liquid (L).
 #### Input Files
-
+1. **run.py**: Python script to automate the MD runs.
+2. **data.step3.initial**: Starting configuration and molecular topology (LAMMPS format).
+3. **in.step3_model**: LAMMPS input script.
 #### Output Files
+1. **_output.out**: Output files from MD runs for different λ windows.
+2. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
+3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 6_Phase_Transitions
 
