@@ -119,7 +119,7 @@ Thermodynamic transformation from the weak fluid (WF) to the fully interacting l
 2. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 6_Phase_Transitions
-Final stage of the MD-PSCP workflow computes the overall free energy differences between pairs of polymorphs (solid–solid and solid–liquid transitions) as a function of temperature. Each folder represents a specific phase transition (e.g., cubic->index-3, index-3->liquid).
+Final stage of the MD-PSCP workflow computes the overall free energy differences between pairs of polymorphs (solid–solid transitions) and between polymorphs and the liquid phase (solid–liquid transitions), as a function of temperature. Each folder represents a specific phase transition (e.g., cubic->index-3, index-3->liquid).
 #### Input Files
 1. **method_MBAR.py**: Python script used to compute free energy differences using MBAR.
 #### Output Files
