@@ -97,7 +97,7 @@ Thermodynamic transformation from the fully interacting solid (S) to the dense w
 3. **figure_MBAR_total.png**: Visualization of the MBAR integration for this step.
 
 ### 4_DWF->WF
-Thermodynamic transformation from the dense weak fluid (DWF) to the weal fluid (WF).
+Thermodynamic transformation from the dense weak fluid (DWF) to the weak fluid (WF).
 #### Input Files
 1. **coordenador.py**: Python script to automate the MD runs.
 2.  **data.initial**, **data2.out**: Starting configuration and molecular topology (LAMMPS format).
