@@ -72,16 +72,19 @@ The following folders have been provided:
 ### 1_NPT_equilibration
 Equilibrate solid and liquid phases at target pressure and temperature (NPT ensemble).
 #### Input Files
-1. **box.lmp**: Molecular topology (LAMMPS format).
+1. **box.lmp**: Starting configuration and molecular topology (LAMMPS format).
 2. **in.solid**: LAMMPS input script.
 #### Output Files
 1. **X_output.out**: LAMMPS outputs for each timestep window and temperature X Kelvin.
    
 ### 2_Gaussian_Potential_Fit
-
+Fit Gaussian potentials for intermediate restrained states.
 #### Input Files
-
+1. **fit.py**, **positions.py**, **probability.py**: Python scripts for potential fitting.
+2.  **data.step0.initial**: Starting configuration and molecular topology (LAMMPS format).
+3.  **in.gauss_wells**: LAMMPS input script.
 #### Output Files
+
 
 ### 3_S->DWF
 
