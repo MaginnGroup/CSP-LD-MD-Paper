@@ -82,7 +82,8 @@ Fit Gaussian potentials for intermediate restrained states.
 2.  **data.step0.initial**: Starting configuration and molecular topology (LAMMPS format).
 3.  **in.gauss_wells**: LAMMPS input script.
 #### Output Files
-
+1. **positions_X.txt**: Equilibrium coordinates of atoms of type X.
+2. 
 
 ### 3_S->DWF
 
