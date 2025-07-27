@@ -82,7 +82,7 @@ Fit Gaussian potential for intermediate restrained states.
 2.  **data.step0.initial**: Starting configuration and molecular topology (LAMMPS format).
 3.  **in.gauss_wells**: LAMMPS input script.
 #### Output Files
-1. **positions_.txt**: Equilibrium coordinates of atoms of types.
+1. **positions_.txt**: Equilibrium coordinates of atom types.
 2. **dados_dr0_P.txt**: Probability distribution used to fit the parameter k of the Gaussian potential.
 
 ### 3_S->DWF
