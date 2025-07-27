@@ -1,0 +1,107 @@
+
+variable        NAME index TCNE
+log             ${NAME}.log
+variable        mytemp index 350.0
+variable	dt index 1.0
+variable        coeff1 equal 22.0
+variable        eta equal 0.1
+variable        lbdv equal 0.9
+variable        lbdc equal 0.7
+variable 	lbda equal xst1
+
+variable 	scale_gauss equal ${coeff1}*((v_lbda)^2)*((1.0-v_lbda)^3) 
+
+if "${lbda} <= ${lbdv}" then &
+    "variable scale_lj equal (1.0-${eta})*(-3.0*((v_lbda/${lbdv})^4)+8.0*((v_lbda/${lbdv})^3)-6.0*((v_lbda/${lbdv})^2))+1.0" &
+else &
+    "variable scale_lj equal ${eta}"
+
+if "${lbda} <= ${lbdc}" then &
+    "variable scale_coul equal (1.0-(${eta})^2)*(-3.0*((v_lbda/${lbdc})^4)+8.0*((v_lbda/${lbdc})^3)-6.0*((v_lbda/${lbdc})^2))+1.0" &
+else &
+    "variable scale_coul equal (${eta})^2"
+
+
+units            real
+special_bonds    lj 0.0 0.0 0.5 coul 0.0 0.0 0.5
+atom_style       full
+pair_style	 hybrid/overlay lj/cut 12.0 coul/long 12.0 gauss 12.0
+
+bond_style	 harmonic
+dihedral_style	 opls
+angle_style	 harmonic
+
+read_data       ../data.step1.initial
+
+kspace_style    pppm 1E-4
+pair_modify     mix geometric tail yes
+
+timestep        ${dt}
+
+# para obter essas coeficientes usar o comando "write_coeff file.coeff" em simulação nvt ou npt sem hybrid style
+pair_coeff      * * coul/long
+
+include         ../data.out
+
+pair_coeff      1 11 gauss 5.0 0.9 12
+pair_coeff      2 12 gauss 5.0 0.9 12
+pair_coeff      3 13 gauss 5.0 0.9 12
+pair_coeff      4 14 gauss 5.0 0.9 12
+pair_coeff      5 15 gauss 5.0 0.9 12
+pair_coeff      6 16 gauss 5.0 0.9 12
+pair_coeff      7 17 gauss 5.0 0.9 12
+pair_coeff      8 18 gauss 5.0 0.9 12
+pair_coeff      9 19 gauss 5.0 0.9 12
+pair_coeff      10 20 gauss 5.0 0.9 12
+
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_c1.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_c1b.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_c2.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_c3.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_c2b.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_c3b.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_n1.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_n2.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_n1b.txt
+include         ../../1_Gaussian_Potential_Fit/index-9/Outputs/positions_n2b.txt
+
+velocity        all zero linear units box
+
+group   	mobile type <> 1 10
+group   	stat   type <> 11 20
+
+fix            1 mobile nvt temp ${mytemp} ${mytemp} $(100.0*dt) 
+dump           1 all custom 10000 ${NAME}.lammpstrj id type x y z
+
+fix            1a all shake 0.0001 50 0 a 1 2 3 4 5 6 7 8 9 10 b 5 6 7 8 9
+
+fix            2 mobile adapt 1 pair lj/cut epsilon 1*10 1*10 v_scale_lj scale yes 
+compute        lj all pair lj/cut 
+
+fix            3 mobile adapt 1 pair coul/long scale 1*10 1*10 v_scale_coul kspace v_scale_coul scale yes
+compute        coul all pair coul/long
+
+fix             4a all adapt 1 pair gauss a 1 11 v_scale_gauss scale yes
+fix             4b all adapt 1 pair gauss a 2 12 v_scale_gauss scale yes
+fix             4c all adapt 1 pair gauss a 3 13 v_scale_gauss scale yes
+fix             4d all adapt 1 pair gauss a 4 14 v_scale_gauss scale yes
+fix             4e all adapt 1 pair gauss a 5 15 v_scale_gauss scale yes
+fix             4f all adapt 1 pair gauss a 6 16 v_scale_gauss scale yes
+fix             4g all adapt 1 pair gauss a 7 17 v_scale_gauss scale yes
+fix             4h all adapt 1 pair gauss a 8 18 v_scale_gauss scale yes
+fix             4i all adapt 1 pair gauss a 9 19 v_scale_gauss scale yes
+fix             4j all adapt 1 pair gauss a 10 20 v_scale_gauss scale yes
+compute         gauss all pair gauss
+
+thermo_style    custom step vol temp press ke pe etotal enthalpy evdwl etail ecoul elong v_lbda v_scale_lj v_scale_coul v_scale_gauss c_lj c_coul c_gauss
+thermo          200
+
+run             5000000
+
+write_data      data.${NAME}
+
+write_restart   restart.${NAME}
+
+
+
+
