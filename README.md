@@ -4,9 +4,9 @@ Authors: G. B. Correa, S. Konstantinopoulos, B. I. Tan, Y. Zhang, F. W. Tavares,
 
 This repository contains supporting files for the article 'Assessing Polymorph Stability and Phase Transitions at Finite Temperature: Integrating Crystal Structure Prediction, Lattice Dynamics, and Molecular Dynamics' (DOI: **[*INSERT LATER*]**).
 
-In this work, we propose a workflow to efficiently assess the phase behaviour of organic molecular crystals at finite temperature. The proposed methodology combines zeroth-order Crystal Structure Prediction (CSP), harmonic approximation lattice dynamics (HA-LD), and molecular dynamics based on the pseudo-supercritical path (PSCP) method. 
+In this work, we describe a workflow to efficiently assess the phase behaviour of organic molecular crystals at finite temperature. The methodology combines zeroth-order Crystal Structure Prediction (CSP), harmonic approximation lattice dynamics (HA-LD), and molecular dynamics based on the pseudo-supercritical path (PSCP) method. 
 
-The assocaited input (and output) files for each of these stages are compiled in this repository and described below. 
+The associated input (and output) files for each of these stages are compiled in this repository and described below. 
 
 ## CSP
 
@@ -161,8 +161,8 @@ and polarizability-based model intermolecular potentials. *Phys. Chem. Chem. Phy
 
 [12] Eike, D. M.; Brennecke, J. F.; Maginn, E. J. Toward a robust and general molecular
 simulation method for computing solid-liquid coexistence. *The Journal of chemical
-physics* **2005**, *122*.
+physics* **2005**, *122*, 014115, DOI: 10.1063/1.1823371.
 
-[13] Eike, D. M.; Maginn, E. J. Atomistic simulation of solid-liquid coexistence for molecular systems: Application to triazole and benzene. *The Journal of chemical physics* **2006**, *124*.
+[13] Eike, D. M.; Maginn, E. J. Atomistic simulation of solid-liquid coexistence for molecular systems: Application to triazole and benzene. *The Journal of chemical physics* **2006**, *124*, 164503, DOI: 10.1063/1.2188400.
 
 [14] Correa, G. B.; Zhang, Y.; Abreu, C. R. A.; Tavares, F. W.; Maginn, E. J. Revisiting the pseudo-supercritical path method: An improved formulation for the alchemical calculation of solid-liquid coexistence. *J. Chem. Phys.* **2023**, *159*, 104105, DOI: 10.1063/5.0163564.
